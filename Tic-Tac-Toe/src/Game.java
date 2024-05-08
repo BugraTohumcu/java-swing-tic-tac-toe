@@ -38,13 +38,13 @@ public class Game {
 	}
 	
 	
-	public static void endGame() {
+	public static void endGame(int winner) {
 		
 		for(int i = 0; i < TicTacToeApp.numberOfButtons; i++) {
 			TicTacToeApp.buttons[i].setEnabled(false);
 		}
 		
-		TicTacToeApp.turnLabel.setText("");
+		TicTacToeApp.turnLabel.setText("Congratulations, winner is " + TicTacToeApp.buttons[winner].getText());
 		
 	}
 	
@@ -93,7 +93,7 @@ public class Game {
 	        if (checkWinningCondition(combination)) {
 	        	highlightWinnerCells(combination[0], combination[1], combination[2]);
 	        	increaseScore(combination[0]);
-	            endGame();
+	            endGame(combination[0]);
 	            return;
 	        }
 	    }
